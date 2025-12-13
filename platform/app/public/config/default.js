@@ -6,6 +6,8 @@ window.config = {
   // whiteLabeling: {},
   extensions: [],
   modes: [],
+  disableConfirmationPrompts: true,
+  activateViewportBeforeInteraction: false,
   customizationService: {},
   showStudyList: true,
   // some windows systems have issues with more than 3 web workers
