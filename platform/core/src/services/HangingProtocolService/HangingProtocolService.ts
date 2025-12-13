@@ -12,6 +12,7 @@ import numberOfDisplaySetsWithImages from './custom-attribute/numberOfDisplaySet
 import seriesDescriptionsFromDisplaySets from './custom-attribute/seriesDescriptionsFromDisplaySets';
 import uuidv4 from '../../utils/uuidv4';
 import { getUniqueAttributeFromList } from './lib/getUniqueAttributeFromList';
+import de from 'platform/i18n/src/locales/de';
 
 type Protocol = HangingProtocol.Protocol | HangingProtocol.ProtocolGenerator;
 
@@ -79,6 +80,8 @@ export default class HangingProtocolService extends PubSubService {
     ModalitiesInStudy: {
       name: 'Gets the array of the modalities for the series',
       callback: metadata => {
+        console.log(metadata) 
+        debugger
         if (metadata.ModalitiesInStudy?.length > 0) {
           return metadata.ModalitiesInStudy;
         }
@@ -398,6 +401,8 @@ export default class HangingProtocolService extends PubSubService {
 
   public addStudy(study) {
     if (!this.hasStudyUID(study.StudyInstanceUID)) {
+      console.log(`Adding study ${study.StudyInstanceUID} to HangingProtocolService`);
+      debugger
       this.studies.push(study);
     }
   }
